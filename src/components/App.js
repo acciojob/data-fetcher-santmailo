@@ -16,7 +16,9 @@ const App = () => {
   return (
     <div>
         {/* Do not remove the main div */}
-        {JSON.stringify(data)}
+        <pre>
+          {JSON.stringify(data)}
+        </pre>
     </div>
   )
 }
