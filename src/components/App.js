@@ -9,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("https://dummyjson.com/productds")
+      .get("https://dummyjson.com/products")
       .then((data) => {
         setData(data.data);
         setLoading(false);
