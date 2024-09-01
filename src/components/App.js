@@ -20,14 +20,7 @@ const App = () => {
     <div>
       {/* Do not remove the main div */}
 
-      {data.length == 0 ? (
-        <p>Loading...</p>
-      ) : (
-        <pre>
-          <h1>Data Fetched from API</h1>
-          {JSON.stringify(data)}
-        </pre>
-      )}
+      {data.length == 0 ? <p>Loading...</p> : <pre>{JSON.stringify(data)}</pre>}
     </div>
   );
 };
