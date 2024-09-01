@@ -25,12 +25,14 @@ const App = () => {
       {loading ? (
         <p>Loading...</p>
       ) : err ? (
+        <p>An error occurred: {err}</p>
+      ) : data.length === 0 ? (
         <p>No data found</p>
       ) : (
-        <div>
+        <>
           <h1>Data Fetched from API</h1>
           <pre>{JSON.stringify(data)}</pre>
-        </div>
+        </>
       )}
     </div>
   );
