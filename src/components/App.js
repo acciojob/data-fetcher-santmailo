@@ -5,22 +5,34 @@ import "./../styles/App.css";
 const App = () => {
   const [data, setData] = React.useState("");
   const [err, setErr] = React.useState("");
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products")
-      .then((data) => setData(data.data))
+      .then((data) => {
+        setData(data.data);
+        setLoading(false);
+      })
       .catch((err) => {
-        // console.log(err.message);
         setErr(err.message);
+        setLoading(false);
       });
   }, []);
 
   return (
     <div>
-      {/* Do not remove the main div */}
-
-      {data.length == 0 ? <p>Loading...</p> : <pre>{JSON.stringify(data)}</pre>}
+      {loading ? (
+        <p>Loading...</p>
+      ) : err ? (
+        <p>An error occurred: {err}</p>
+      ) : data.length === 0 ? (
+        <p>No data found</p>
+      ) : (
+        <h1>
+          <pre>{JSON.stringify(data)}</pre>
+        </h1>
+      )}
     </div>
   );
 };
