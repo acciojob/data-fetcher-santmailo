@@ -9,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("https://dummyjson.com/products")
+      .get("https://dummyjson.com/productds")
       .then((data) => {
         setData(data.data);
         setLoading(false);
@@ -25,13 +25,16 @@ const App = () => {
       {loading ? (
         <p>Loading...</p>
       ) : err ? (
-        <p>An error occurred: {err}</p>
+        <p>An error occurred: </p>
       ) : data.length === 0 ? (
-        <p>No data found</p>
+        <>
+          <h1>No data found</h1>
+          <pre>'[]'</pre>
+        </>
       ) : (
         <>
           <h1>Data Fetched from API</h1>
-          <pre>{JSON.stringify(data)}</pre>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
         </>
       )}
     </div>
