@@ -27,9 +27,10 @@ const App = () => {
       ) : err ? (
         <p>No data found</p>
       ) : (
-        <h1>
+        <div>
+          <h1>Data Fetched from API</h1>
           <pre>{JSON.stringify(data)}</pre>
-        </h1>
+        </div>
       )}
     </div>
   );
